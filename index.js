@@ -1,22 +1,18 @@
 const getCountryByName = async (countryName) => {
-    const response = await fetch("https://restcountries.com/v3.1/name/japan");
+    const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
     const data = await response.json();
-    //console.log(data);
-    //document.querySelector("li") = data.name.common;
-
-
+    return data[0]; 
 }
 
 const getCountryData = async () => {
     const country = await getCountryByName("Japan");
-    //console.log(country);
 
 const countryContainer = document.createElement("div")
 
 data.forEach((countryUrl) => {
    const countryData = document.createElement("li");
-    countryData.innerText = countryUrl.name.common.capital.languages.population;
-    countryContainer.appendChild(countryList);
+   countryData.innerText = countryUrl.name.common//.capital.languages.population;
+   countryContainer.appendChild(countryData);
     getCountryData.appendChild(country);
 })
 
@@ -32,7 +28,7 @@ data.forEach((countryUrl) => {
 
 }
 
-document.body.appendChild(countryContainer);
+document.querySelector("body").appendChild(countryContainer);
 
 //getCountryByName("Japan");
-getCountryData(); is this okay and am i meeting the criteria 
+getCountryData();

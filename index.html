@@ -7,7 +7,81 @@
     <title>JS Countries</title>
 </head>
 <body>
-    <ul id="countryList"></ul>
+    <ul id="countryData"></ul>
     
 </body>
 </html>
+
+
+<!-- 
+const getCountryByName = async (countryName) => {
+    const response = await fetch("https://restcountries.com/v3.1/name/japan");
+    const data = await response.json();
+    //console.log(data);
+    //document.querySelector("li") = data.name.common;
+
+
+}
+
+const getCountryData = async () => {
+    const country = await getCountryByName("Japan");
+    //console.log(country);
+
+const countryContainer = document.createElement("div")
+
+data.forEach((countryUrl) => {
+   const countryData = document.createElement("li");
+    countryData.innerText = countryUrl.name.common.capital.languages.population;
+    countryContainer.appendChild(countryData);
+    getCountryData.appendChild(country);
+})
+
+
+// data.forEach((countryUrl) => {
+//     const countryData = {
+//         name: country.name.common,
+//         capital: country.capital,
+//         language: country.languages,
+//         population: country.population
+
+//     };
+
+}
+
+document.querySelector("body").appendChild(countryContainer);
+
+//getCountryByName("Japan");
+getCountryData(); -->
+
+
+
+
+<!-- const getCountryByName = async (countryName) => {
+    const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+    const data = await response.json();
+    return data[0]; 
+}
+
+const getCountryData = async () => {
+    const country = await getCountryByName("Japan");
+
+    const countryContainer = document.createElement("div");
+
+    if (country) {
+        const countryData = document.createElement("li");
+        countryData.innerHTML = `
+            <strong>Name:</strong> ${country.name.common}<br>
+            <strong>Capital:</strong> ${country.capital ? country.capital[0] : 'N/A'}<br>
+            <strong>Languages:</strong> ${Object.values(country.languages || {}).join(", ") || 'N/A'}<br>
+            <strong>Population:</strong> ${country.population || 'N/A'}
+        `;
+        countryContainer.appendChild(countryData);
+    } else {
+        console.error("Country data not available.");
+    }
+
+    document.body.appendChild(countryContainer);
+}
+
+// Call the function
+getCountryData(); -->
