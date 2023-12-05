@@ -4,31 +4,32 @@ const getCountryByName = async (countryName) => {
     return data[0]; 
 }
 
-const getCountryData = async () => {
-    const country = await getCountryByName("Japan");
-
-const countryContainer = document.createElement("div")
-
-data.forEach((countryUrl) => {
-   const countryData = document.createElement("li");
-   countryData.innerText = countryUrl.name.common//.capital.languages.population;
-   countryContainer.appendChild(countryData);
-    getCountryData.appendChild(country);
-})
+const countryData = (country) => {
+    const countryContainer = document.createElement("div")
 
 
-// data.forEach((countryUrl) => {
-//     const countryData = {
-//         name: country.name.common,
-//         capital: country.capital,
-//         language: country.languages,
-//         population: country.population
 
-//     };
+   const name = document.createElement("p");
+   name.innerText = `Name: ${country.name.common}`;
 
-}
+   const capital = document.createElement("p");
+   capital.innerText = `Capital: ${country.capital}`;
 
-document.querySelector("body").appendChild(countryContainer);
+   const languages = document.createElement("p");
+   languages.innerText = `Languages: ${Object.values(country.languages).join(", ")}`;
 
-//getCountryByName("Japan");
-getCountryData();
+   const population = document.createElement("p");
+   population.innerText = `Population: ${country.population}`;
+
+
+   countryContainer.appendChild(name);
+   countryContainer.appendChild(capital);
+   countryContainer.appendChild(languages);
+   countryContainer.appendChild(population);
+
+
+   document.getElementById(countryData).appendChild(countryContainer);
+};
+
+getCountryByName("Japan");
+
