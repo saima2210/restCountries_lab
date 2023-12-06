@@ -1,7 +1,7 @@
 const getCountryByName = async (countryName) => {
     const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
     const data = await response.json();
-    return data[0]; 
+    countryData(data[0]); 
 }
 
 const countryData = (country) => {
@@ -28,8 +28,9 @@ const countryData = (country) => {
    countryContainer.appendChild(population);
 
 
-   document.getElementById(countryData).appendChild(countryContainer);
+   document.getElementById("countryInfo").appendChild(countryContainer);
 };
 
 getCountryByName("Japan");
+
 
